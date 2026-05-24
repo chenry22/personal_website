@@ -37,12 +37,12 @@ body {
     font-style: italic;
     display: flex;
     flex-wrap: wrap;
-    row-gap: 20px;
+    row-gap: 0;
     justify-content: right;
     gap: 32px;
     font-family: 'Honk';
     color: rgb(255, 193, 193);
-    font-size: 2.4rem;
+    font-size: 2rem;
 }
 .tree-text a {
     all: unset;
@@ -51,7 +51,7 @@ body {
     position: relative;
 }
 .tree-text > *:hover {
-    font-size: 2.6rem;
+    font-size: 2.4rem;
     color: rgb(255, 223, 240);
 }
 .tree-text *:hover {
