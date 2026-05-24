@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Tree</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk:MORF@15&family=Rock+3D&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="main">
+        <div class="tree-text">
+            <a href="CalebHenry_Resume.pdf" target="_blank">Resume</a>
+            <div onclick="toggleDesc(1)">
+                Contact
+            </div>
+            <div onclick="toggleDesc(0)">
+                About
+                <div class="desc">
+                    <p class="desc-text hidden" style="margin-bottom: 6px;">Hello! I'm Caleb, a coder/creative/person in the world. I recently graduated from <a href='https://washu.edu' target="_blank">WashU</a> (2026) with a BS in Computer Science. I love the DIY web, music, basketball, and turning compelling ideas into realities. Please explore some of my work below!</p>
+                    
+                    <p class="desc-text hidden">You can reach me at <a href='mailto:calebhenry7095@gmail.com'>calebhenry7095@gmail.com</a> You can also find my <a href="https://www.linkedin.com/in/caleb-huerta-henry/">LinkedIn here</a>.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <h1 id="launcher">caleb henry</h1>
+            <div class="tabs">
+                <a href="software.html">* Software Developer</a>
+                <a href="design.html">* Designer</a>
+                <a href="creative.html">* Creator</a>
+            </div>
+        </div>
+
+        <!-- <div class="descriptors slider">
+            <div>WashU '26 Graduate - B.S. in Computer Science</div>
+            <div>Co-founder of <a>The Bobcat Press</a></div>
+            <div>Avid NBA and Sacramento Kings fan</div>
+            <div>Featured exhibitor at <a>SLICE 2025</a>!</div>
+            <div>Co-founder of <a href=''>ORCHARD</a></div>
+            <div>Lover of local music</div>
+        </div> -->
+
+        <img id="clouds" src="imgs/clouds.jpg"/>
+        <img id="main-img" src="imgs/main.gif"/>
+    </div>
+
+    <script>
+        function toggleDesc(num) {
+            document.getElementsByClassName('desc-text')[num].classList.toggle('hidden');
+        }
+
+        const launcher = document.getElementById("launcher");
+        const phrases = [
+            "WashU '26 Grad",
+            "Co-founder of The Bobcat Press",
+            "Co-founder of ORCHARD",
+            "Sacramento Kings fan",
+            "NBA enthusiast",
+            "Lover of local music",
+            "I <3 Virginia Woolf",
+            "Featured exhibitor at SLICE 2026",
+            "Guitarist",
+            "I've read House of Leaves",
+            "My favorite band is Alvvays",
+            "Purple",
+            "Are.na user",
+            "Web surfer",
+            "Owner of a valid US Driver's License",
+            "Cat enjoyer",
+            "Horse admirer",
+            "Rabbit appreciator",
+            "Very employable person",
+            "'Work hard, play hard' believer",
+            "I'm from Columbus, OH",
+            "I'm (red-green) colorblind",
+            "Keon Ellis is my favorite basketball player",
+            "I <3 Victor Wembanyama",
+            "Origami crane expert",
+            "Ball knower",
+            "DIY web enthusiast",
+            "Mythology enjoyer",
+            "Team player",
+            "Thinker of thoughts and ideas",
+            "You want to hire me...",
+            "Physical media enjoyer",
+            "Musician",
+            "Graphic Design is my passion",
+            "I <3 Systems (and I am one)",
+            "My favorite solo artist is MAGS",
+            "Contact me! For anything",
+            "These are my works..."
+        ];
+
+        launcher.addEventListener("click", (e) => {
+            const particle = document.createElement("div");
+            particle.className = "flying-text";
+            particle.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+
+            const rect = launcher.getBoundingClientRect();
+            const startX = rect.left + rect.width / 2;
+            const startY = rect.top + rect.height / 2;
+            particle.style.left = `${startX}px`;
+            particle.style.top = `${startY}px`;
+
+            const angle = Math.random() * Math.PI * 2;
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            const distY = h / 6 + (Math.random() * h / 4);
+            const distX = w / 7 + (Math.random() * w / 6);
+            const x = Math.cos(angle) * distX;
+            const y = Math.sin(angle) * distY;
+            const rotation = `${(Math.random() - 0.5) * 180}deg`;
+
+            particle.style.setProperty("--x", `${x}px`);
+            particle.style.setProperty("--y", `${y}px`);
+            particle.style.setProperty("--rot", rotation);
+
+            document.body.appendChild(particle);
+            particle.addEventListener("animationend", () => {
+                particle.remove();
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Tree</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk:MORF@15&family=Rock+3D&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div id="main">
+        <div class="root-header">
+            <a class="back" href="index.html">Back</a>
+            <h1>design</h1>
+
+            <div class="designs" id="designs"></div>
+        </div>
+
+        <img id="main-img" src="imgs/roots.gif"/>
+    </div>
+
+    <script>
+        let visuals = [
+            {
+                image: 'imgs/projects/visuals/bobcat.png',
+                tags: ['Canva', 'Figma', 'Social Media'],
+                desc: 'Graphic design for The Bobcat Press, an independent music journalism organization. Thumbnails and layouts for contributed articles as well as logos, branding, and merch.',
+                link: 'https://instagram.com/thebobcatpress'
+            },
+            {
+                image: 'imgs/projects/visuals/noise.png',
+                tags: ['Adobe InDesign', 'Zine'],
+                desc: '"Go Where the Noise Is" - Zine for The Bobcat Press.',
+                link: 'https://www.are.na/block/46457881'
+            },
+            {
+                image: 'imgs/projects/visuals/scene.png',
+                tags: ['Adobe InDesign', 'Zine'],
+                desc: '"Yes, the St. Louis Scene will save you" - Zine for The Bobcat Press, project for Zines as Critical Practice (SP26) at WashU.',
+                link: 'https://www.are.na/block/46457881'
+            },
+            {
+                image: 'imgs/projects/visuals/texts.png',
+                tags: ['Figma', 'Graphic Design'],
+                desc: 'Semester long project for Visual Principles for the Screen (FL25) at WashU. The assignment was to create three visual designs a week taking from the same text sources centering around a common theme. I used this as an opportunity to get more comfortable using Figma for various tasks.',
+                link: 'https://scoby.page/caleb-s-visual-texts', 
+            },
+            {
+                image: 'imgs/projects/visuals/magazine.jpg',
+                tags: ['Adobe InDesign', 'Canva', 'Print Media'],
+                desc: 'Full-length printed magazine designed and formatted by me and one other illustrator. Produced and sold at the St. Louis Independent Comics Expo (SLICE 2025), which we were a featured exhibitor at.',
+            },
+            {
+                image: 'imgs/projects/visuals/sticker.png',
+                tags: ['Canva'],
+            },
+            {
+                image: 'imgs/projects/visuals/question.png',
+                tags: ['Hand-drawn', 'Zine'],
+                desc: '"The Question", a hand-drawn zine for The Bobcat Press. These were printed and given out at the St. Louis Independent Comics Expo (SLICE 2025), which we were a featured exhibitor at.',
+                link: 'https://www.are.na/block/45369703'
+            },
+            {
+                image: 'imgs/projects/visuals/neil.png',
+                tags: ['Canva'],
+                link: 'https://www.instagram.com/p/DOl7LRtj440/?img_index=1'
+            },
+            {
+                image: 'imgs/projects/visuals/people.png',
+                tags: ['Canva'],
+                link: 'https://www.instagram.com/p/DNih_GZNEMV/?img_index=1'
+            },
+            {
+                image: 'imgs/projects/visuals/icon.jpg',
+                tags: ['Adobe Illustrator'],
+                desc: 'Adobe Illustrator project for Digital Studio (SP25) at WashU. The assignment was to create a cohesive set of icons using a limited color palette.',
+            },
+        ];
+
+        function createProjectBlock(data) {
+            let container = document.createElement('div');
+
+            let thumb = document.createElement('div');
+            thumb.classList.add('design-thumb');
+            let img = document.createElement('img');
+            img.src = data.image;
+            thumb.appendChild(img);
+
+            let infoBlock = document.createElement('div');
+            infoBlock.classList.add('info');
+
+            let tags = document.createElement('div');
+            tags.classList.add('tags');
+            for (let t of data.tags) {
+                let tag = document.createElement('div');
+                tag.innerText = t;
+                tags.appendChild(tag);
+            }
+            infoBlock.appendChild(tags);
+
+            if (data.desc) {
+                let details = document.createElement('details');
+                let label = document.createElement('summary');
+                label.innerText = "Summary";
+                let desc = document.createElement('p');
+                desc.innerText = data.desc;
+                details.appendChild(label);
+                details.appendChild(desc);
+                 infoBlock.appendChild(details);
+            }
+            if (data.link) {
+                let link = document.createElement('a');
+                link.classList.add('design-link')
+                link.target = '_blank';
+                link.href = data.link;
+                link.innerText = "View";
+                infoBlock.appendChild(link);
+            }
+
+            container.appendChild(thumb);
+            container.appendChild(infoBlock)
+            return container;
+        }
+
+        window.addEventListener('load', () => {
+            let webDiv = document.getElementById('designs');
+            for (let v of visuals) {
+                webDiv.appendChild(createProjectBlock(v));
+            }
+        });
+    </script>
+</body>
+</html>

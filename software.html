@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Tree</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk:MORF@15&family=Rock+3D&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div id="main">
+        <div class="root-header">
+            <a class="back" href="index.html">Back</a>
+            <h1>software</h1>
+
+            <div class="selector">
+                <div class="active" id="web-selector" onclick="changeProjColumn('web')">Web</div>
+                <div id="mobile-selector" onclick="changeProjColumn('mobile')">App</div>
+                <div id="data-selector" onclick="changeProjColumn('data')">Data</div>
+            </div>
+
+            <div class="projects" id="web"></div>
+            <div class="projects hidden" id="mobile"></div>
+            <div class="projects hidden" id="data"></div>
+        </div>
+
+        <img id="main-img" src="imgs/roots.gif"/>
+    </div>
+
+    <script>
+        let web = [
+            {
+                image: 'imgs/projects/ball.jpg',
+                title: 'NBA Superlative Rankings',
+                dateStr: 'April 2026',
+                tags: ['Flask', 'NoSQL', 'Firebase', 'HTML/CSS'],
+                desc: 'A Flask app allowing users to vote between two NBA players in a number of different categories. Players are ranked with an ELO score which is updated through a custom algorithm every time a vote is submitted. Votes and rankings are stored in a Firebase backend and viewable through a leaderboard.',
+                links: [
+                    { 
+                        link: 'https://nba-superlatives.vercel.app/', 
+                        type: 'visit' 
+                    },
+                    { 
+                        link: 'https://github.com/chenry22/nba-superlative-rankings', 
+                        type: 'github' 
+                    }
+                ]
+            },
+            {
+                image: 'imgs/projects/cam.png',
+                title: 'CAM Collage Club',
+                dateStr: 'April 2026',
+                tags: ['UX Research', 'HTML/CSS/JS'],
+                desc: 'Final project for UX Research Methods (SP26) at WashU. For this project a partner and I researched the Contemporary Art Museum in St. Louis, identifying core values, stakeholders, and opportunity areas that could be addressed with a digital product. Along with a final presentation of our research, we created a working prototype of our product proposal.',
+                links: [
+                    { 
+                        link: 'https://chenry22.github.io/uxr_cam_project/', 
+                        type: 'visit' 
+                    },
+                    { 
+                        link: 'https://github.com/chenry22/uxr_cam_project', 
+                        type: 'github' 
+                    }
+                ]
+            },
+            {
+                image: 'imgs/projects/orchard.png',
+                title: 'ORCHARD Web Convention',
+                dateStr: 'April 2026',
+                tags: ['UI/UX', 'HTML/CSS/JS'],
+                desc: 'A stylized website promoting a local St. Louis web convention for an organization I co-founded. This site integrates the Sigma.js library and uses the font Redaction as a stylistic touchstone. There are also Yarndings, which I was very happy to be able to use.',
+                links: [
+                    { 
+                        link: 'https://orchard-web-convention.netlify.app', 
+                        type: 'visit' 
+                    },
+                    { 
+                        link: 'https://github.com/chenry22/orchard-diy-web-convention', 
+                        type: 'github' 
+                    }
+                ]
+            },
+            {
+                image: 'imgs/projects/wikicards.png',
+                title: 'WikiCards',
+                dateStr: 'November 2025 - March 2026',
+                tags: ['Angular', 'TypeScript', 'UI/UX'],
+                desc: 'A web app combining a Pomodoro productivity timer with a reward system where users collect Wikipedia articles as trading cards. Taking inspiration from the existing Wikipedia UI, the website includes ways to sell cards, buy more packs, and create binders of your collection.',
+                links: [
+                    { 
+                        link: 'https://chenry22.github.io/wiki-cards/', 
+                        type: 'visit' 
+                    },
+                    { 
+                        link: 'https://github.com/chenry22/wiki-cards', 
+                        type: 'github' 
+                    }
+                ]
+            },
+            {
+                image: 'imgs/projects/color.png',
+                title: 'Color By Day',
+                dateStr: 'November 2025',
+                tags: ['Angular', 'TypeScript', 'PostgreSQL'],
+                desc: 'A web app that generates a new color every day. Users are challenged to do some activity corresponding to that color during the day and are able to submit a response that is saved through a PostgreSQL backend.',
+                links: [
+                    { 
+                        link: 'https://chenry22.github.io/color-by-day/', 
+                        type: 'visit' 
+                    },
+                    {
+                        link: 'https://github.com/chenry22/color-by-day',
+                        type: 'github'
+                    }
+                ]
+            },
+            {
+                image: 'imgs/projects/visual.png',
+                title: 'Visual Principles for the Screen',
+                dateStr: 'September 2025 - November 2025',
+                tags: ['UI/UX', 'HTML/CSS'],
+                desc: 'All class work for Visual Principles of the Screen (FL25) at WashU. This class revolved around taking a more thoughtful and expressive approach to UI/UX design and emphasized intentionality in web projects. The final project was to convert a book into a website, focusing on taking advantage of the web as a distinct medium.',
+                links: [
+                    { 
+                        link: 'https://2025-fall-washu-caleb.neocities.org', 
+                        type: 'visit' 
+                    },
+                    {
+                        link: 'https://github.com/chenry22/Visual_Principles_for_Screen',
+                        type: 'github'
+                    }
+                ]
+            },
+            {
+                image: 'imgs/projects/JamPad.png',
+                title: 'JamPad - Web Version',
+                dateStr: 'August 2025',
+                tags: ['React', 'TypeScript', 'PostgreSQL'],
+                desc: 'A web version of the JamPad iOS app for non-iOS users. Integrated with the same backend and auth system through Supabase, but with a custom UI and some feature tradeoffs resulting from the different operating systems involved.',
+                links: [
+                    { 
+                        link: 'https://chenry22.github.io/jampad-web', 
+                        type: 'visit' 
+                    }
+                ]
+            },
+            {
+                image: 'imgs/projects/JamPad.png',
+                title: 'JamPad Docs',
+                dateStr: 'July 2025 - August 2025',
+                tags: ['Angular', 'TypeScript', 'UI/UX'],
+                desc: 'A documentation page for the JamPad iOS app, detailing core features for new and existing users.',
+                links: [
+                    { 
+                        link: 'https://chenry22.github.io/jampad-docs/', 
+                        type: 'visit' 
+                    },
+                    { 
+                        link: 'https://github.com/chenry22/jampad-docs', 
+                        type: 'github' 
+                    }
+                ]
+            },
+            {
+                image: 'imgs/projects/youd.png',
+                title: 'Up All Night w/ Tim Youd',
+                dateStr: 'March 2025 - April 2025',
+                tags: ['UI/UX', 'HTML/CSS', 'GitHub Actions'],
+                desc: 'A website designed for LA based artist Tim Youd to promote his project "Up All Night", which involed a series of live radio shows and interviews on the KWUR broadcast. This process included a series of Figma site mockups and automated site updates through GitHub Actions.',
+                links: [
+                    { 
+                        link: 'https://timyoud.com', 
+                        type: 'visit' 
+                    },
+                    { 
+                        link: 'https://github.com/chenry22/tim-youd-website', 
+                        type: 'github' 
+                    }
+                ]
+            }
+        ];
+        
+
+
+        let app = [
+            {
+                image: 'imgs/projects/JamPad.png',
+                title: 'JamPad - iOS',
+                dateStr: 'June 2024 - Present',
+                tags: ['SwiftUI', 'PostgreSQL', 'Supabase'],
+                desc: 'An iOS app allowing users to discover local music events in their area.',
+                links: [
+                    {
+                        link: 'https://apps.apple.com/us/app/jampad/id6747590594', 
+                        type: 'visit' 
+                    }
+                ]
+            },
+            {
+                image: 'imgs/projects/crane.png',
+                title: 'MoodCranes (WIP)',
+                dateStr: 'January 2026',
+                tags: ['React Native', 'TypeScript'],
+                desc: 'A React Native app allowing users to track their thoughts and emotions throughout the day, collecting origami cranes each time an entry is submitted. Work in progress.',
+                links: [
+                    { 
+                        link: 'https://github.com/chenry22/mood-cranes', 
+                        type: 'github' 
+                    }
+                ]
+            },
+            {
+                image: 'imgs/projects/creature-game.png',
+                title: 'Creature Monster File Kitchen Simulator Game 2',
+                dateStr: 'September 2025 - December 2025',
+                tags: ['Unity', 'C#', 'GitHub', 'Sprite Art'],
+                desc: 'Final project for Video Game Programming I (FL25) at WashU. This was a group project with me and 3 other programmers. Our idea was to make a restaurant management game with the twist that all of your employees are files on your local machine. Gameplay involved uploading files which would be parsed deterministically into  creatures with different stats and helping your staff cook pizzas over a series of days.',
+                links: [
+                    { 
+                        link: 'https://chenry22.itch.io/cse450-fl25-game-project?secret=7b95lxGHmq1kDse1YduZt4JAhaU', 
+                        type: 'visit' 
+                    },
+                    { 
+                        link: 'https://github.com/chenry22/cse450-game-project', 
+                        type: 'github' 
+                    }
+                ]
+            },
+            {
+                image: 'imgs/projects/swift.png',
+                title: 'Cofitment - iOS',
+                dateStr: 'October 2024 - November 2024',
+                tags: ['Swift', 'GitHub'],
+                desc: 'Final project for Mobile App Development (FL24) at WashU. The idea was a fitness tracking app that gave financial motivation through integration with Stripe. I was responsible for integration of Apple\'s HealthKit API and the UI.',
+            },
+            {
+                image: 'imgs/projects/bloom.png',
+                title: 'Bloom: Language Learning',
+                dateStr: 'June 2023 - August 2024',
+                tags: ['Unity', 'C#', 'Firebase'],
+                desc: 'A language learning app built using Unity. Gameplay involved the integration of a real language learning curriculum through memorization and recall with custom mini-games interspersed during lessons. Later in development an account system was established through Firebase to save progress and create classroom groups.',
+                links: [
+                    {
+                        link: 'https://apps.apple.com/us/app/bloom-language-learning/id6461573086',
+                        type: 'visit'
+                    }
+                ]
+            }
+        ];
+
+
+
+        let data = [
+            {
+                image: 'imgs/projects/ball.jpg',
+                title: 'NBA Career Lab',
+                dateStr: 'May 2026',
+                tags: ['SQLite3', 'Python', 'Flask'],
+                desc: 'An ETL pipeline which gathers data from the official NBA API and aggregates it into monthly stats listings. Players can be queried through a Flask app and the progression of their career is plotted on several different graphs. Custom statistics for offensive, defensive, and playmaking ratings were also developed as a part of this project.',
+                links: [
+                    { 
+                        link: 'https://github.com/chenry22/nba_monthly_stats_project', 
+                        type: 'github' 
+                    }
+                ]
+            },
+            {
+                image: 'imgs/projects/nba-web.png',
+                title: 'NBA Teammate Web',
+                dateStr: 'September 2025',
+                tags: ['Python', 'Flask', 'HTML/CSS/JS'],
+                desc: 'A Flask app which uses parsed two-man lineup data from the NBA API to map out former and current teammate connections from the 2025 NBA Regular Season.',
+                links: [
+                    { 
+                        link: 'https://chenry22.github.io/nba-teammate-web/', 
+                        type: 'visit' 
+                    },
+                    { 
+                        link: 'https://github.com/chenry22/nba-teammate-web', 
+                        type: 'github' 
+                    }
+                ]
+            },
+            {
+                image: 'imgs/projects/twitter.png',
+                title: 'Twitter Account Analyzer',
+                dateStr: 'December 2024',
+                tags: ['Angular', 'HuggingFace', 'Python', 'NoSQL', 'Firebase'],
+                desc: 'Final project for Computer Security (FL24) at WashU. The goal of this project was to integrate several sentiment analysis models from HuggingFace into a queryable web app. Queries would be handled by the frontend and sent to a personal server where the models were loaded and processed requests into sentiment analysis entries in Firebase.',
+                links: [
+                    { 
+                        link: 'https://chenry22.github.io/twitter-account-analyzer/', 
+                        type: 'visit' 
+                    },
+                    { 
+                        link: 'https://github.com/chenry22/twitter-account-analyzer', 
+                        type: 'github' 
+                    }
+                ]
+            },
+            {
+                image: 'imgs/projects/ball.jpg',
+                title: 'NBA All-Star Predictor',
+                dateStr: 'October 2023 - December 2024',
+                tags: ['Python', 'Flask', 'SciKit Learn'],
+                desc: 'A custom trained logistic regression model that predicted which current NBA players would be named all-stars based on historical NBA data. This model was accessible to users through a Flask app which also showed a leaderboard of players most likely to be all-stars by the model\s prediction that updated daily.',
+                links: [
+                    { 
+                        link: 'https://github.com/chenry22/nba-allstar-predictor', 
+                        type: 'github' 
+                    }
+                ]
+            }
+        ];
+
+        function changeProjColumn(col) {
+            document.getElementsByClassName('active')[0].classList.remove('active');
+            document.getElementById(col + '-selector').classList.add('active');
+
+            for (let col of document.getElementsByClassName('projects')) {
+                col.classList.add('hidden');
+            }
+            document.getElementById(col).classList.remove('hidden');
+        }
+
+        function createProjectBlock(data) {
+            let container = document.createElement('div');
+            container.classList.add('project');
+
+            let thumb = document.createElement('div');
+            thumb.classList.add('thumbnail');
+            let img = document.createElement('img');
+            img.src = data.image;
+            thumb.appendChild(img);
+
+            let infoBlock = document.createElement('div');
+            infoBlock.classList.add('info');
+            let title = document.createElement('div');
+            title.classList.add('title');
+            title.innerText = data.title;
+            let date = document.createElement('div')
+            date.classList.add('date');
+            date.innerText = data.dateStr;
+
+            let tags = document.createElement('div');
+            tags.classList.add('tags');
+            for (let t of data.tags) {
+                let tag = document.createElement('div');
+                tag.innerText = t;
+                tags.appendChild(tag);
+            }
+
+            let details = document.createElement('details');
+            let label = document.createElement('summary');
+            label.innerText = "Summary";
+            let desc = document.createElement('p');
+            desc.innerText = data.desc;
+            details.appendChild(label);
+            details.appendChild(desc);
+
+            let links = document.createElement('div');
+            if (data.links) {
+                links.classList.add('links');
+                for (let l of data.links) {
+                    let link = document.createElement('a');
+                    link.target = '_blank';
+                    link.href = l.link;
+
+                    if (l.type === 'visit') {
+                        link.innerText = "Visit";
+                    } else if (l.type === 'github') {
+                        let icon = document.createElement('i');
+                        icon.classList.add('fa', 'fa-github');
+                        link.appendChild(icon);
+                    }
+                    links.appendChild(link);
+                }
+            }
+
+            infoBlock.appendChild(title);
+            infoBlock.appendChild(date);
+            infoBlock.appendChild(tags);
+            infoBlock.appendChild(details);
+            if (data.links) { infoBlock.appendChild(links); }
+            container.appendChild(thumb);
+            container.appendChild(infoBlock)
+            return container;
+        }
+
+        window.addEventListener('load', () => {
+            let webDiv = document.getElementById('web');
+            for (let w of web) {
+                webDiv.appendChild(createProjectBlock(w));
+            }
+            let appDiv = document.getElementById('mobile');
+            for (let a of app) {
+                appDiv.appendChild(createProjectBlock(a));
+            }
+            let dataDiv = document.getElementById('data');
+            for (let d of data) {
+                dataDiv.appendChild(createProjectBlock(d));
+            }
+        });
+    </script>
+</body>
+</html>
