@@ -36,7 +36,7 @@
         let web = [
             {
                 image: 'imgs/projects/ball.jpg',
-                title: 'NBA Superlative Rankings',
+                title: 'NBA Superlative Ranker',
                 dateStr: 'April 2026',
                 tags: ['Flask', 'NoSQL', 'Firebase', 'HTML/CSS'],
                 desc: 'A Flask app allowing users to vote between two NBA players in a number of different categories. Players are ranked with an ELO score which is updated through a custom algorithm every time a vote is submitted. Votes and rankings are stored in a Firebase backend and viewable through a leaderboard.',
@@ -70,7 +70,7 @@
             },
             {
                 image: 'imgs/projects/orchard.png',
-                title: 'ORCHARD Web Convention',
+                title: 'ORCHARD Web Convention Site',
                 dateStr: 'April 2026',
                 tags: ['UI/UX', 'HTML/CSS/JS'],
                 desc: 'A stylized website promoting a local St. Louis web convention for an organization I co-founded. This site integrates the Sigma.js library and uses the font Redaction as a stylistic touchstone. There are also Yarndings, which I was very happy to be able to use.',
@@ -88,7 +88,7 @@
             {
                 image: 'imgs/projects/wikicards.png',
                 title: 'WikiCards',
-                dateStr: 'November 2025 - March 2026',
+                dateStr: 'Nov. 2025 - Mar. 2026',
                 tags: ['Angular', 'TypeScript', 'UI/UX'],
                 desc: 'A web app combining a Pomodoro productivity timer with a reward system where users collect Wikipedia articles as trading cards. Taking inspiration from the existing Wikipedia UI, the website includes ways to sell cards, buy more packs, and create binders of your collection.',
                 links: [
@@ -122,7 +122,7 @@
             {
                 image: 'imgs/projects/visual.png',
                 title: 'Visual Principles for the Screen',
-                dateStr: 'September 2025 - November 2025',
+                dateStr: 'Sept. 2025 - Nov. 2025',
                 tags: ['UI/UX', 'HTML/CSS'],
                 desc: 'All class work for Visual Principles of the Screen (FL25) at WashU. This class revolved around taking a more thoughtful and expressive approach to UI/UX design and emphasized intentionality in web projects. The final project was to convert a book into a website, focusing on taking advantage of the web as a distinct medium.',
                 links: [
@@ -217,7 +217,7 @@
             {
                 image: 'imgs/projects/creature-game.png',
                 title: 'Creature Monster File Kitchen Simulator Game 2',
-                dateStr: 'September 2025 - December 2025',
+                dateStr: 'Sept. 2025 - Dec. 2025',
                 tags: ['Unity', 'C#', 'GitHub', 'Sprite Art'],
                 desc: 'Final project for Video Game Programming I (FL25) at WashU. This was a group project with me and 3 other programmers. Our idea was to make a restaurant management game with the twist that all of your employees are files on your local machine. Gameplay involved uploading files which would be parsed deterministically into  creatures with different stats and helping your staff cook pizzas over a series of days.',
                 links: [
@@ -234,7 +234,7 @@
             {
                 image: 'imgs/projects/swift.png',
                 title: 'Cofitment - iOS',
-                dateStr: 'October 2024 - November 2024',
+                dateStr: 'Oct. 2024 - Nov. 2024',
                 tags: ['Swift', 'GitHub'],
                 desc: 'Final project for Mobile App Development (FL24) at WashU. The idea was a fitness tracking app that gave financial motivation through integration with Stripe. I was responsible for integration of Apple\'s HealthKit API and the UI.',
             },
@@ -260,7 +260,7 @@
                 image: 'imgs/projects/ball.jpg',
                 title: 'NBA Career Lab',
                 dateStr: 'May 2026',
-                tags: ['SQLite3', 'Python', 'Flask'],
+                tags: ['ETL', 'SQLite3', 'Python', 'Flask'],
                 desc: 'An ETL pipeline which gathers data from the official NBA API and aggregates it into monthly stats listings. Players can be queried through a Flask app and the progression of their career is plotted on several different graphs. Custom statistics for offensive, defensive, and playmaking ratings were also developed as a part of this project.',
                 links: [
                     { 
@@ -306,7 +306,7 @@
             {
                 image: 'imgs/projects/ball.jpg',
                 title: 'NBA All-Star Predictor',
-                dateStr: 'October 2023 - December 2024',
+                dateStr: 'Oct. 2023 - Dec. 2024',
                 tags: ['Python', 'Flask', 'SciKit Learn'],
                 desc: 'A custom trained logistic regression model that predicted which current NBA players would be named all-stars based on historical NBA data. This model was accessible to users through a Flask app which also showed a leaderboard of players most likely to be all-stars by the model\s prediction that updated daily.',
                 links: [
@@ -355,13 +355,13 @@
                 tags.appendChild(tag);
             }
 
-            let details = document.createElement('details');
-            let label = document.createElement('summary');
-            label.innerText = "Summary";
-            let desc = document.createElement('p');
-            desc.innerText = data.desc;
-            details.appendChild(label);
-            details.appendChild(desc);
+            // let details = document.createElement('details');
+            // let label = document.createElement('summary');
+            // label.innerText = "Summary";
+            // let desc = document.createElement('p');
+            // desc.innerText = data.desc;
+            // details.appendChild(label);
+            // details.appendChild(desc);
 
             let links = document.createElement('div');
             if (data.links) {
@@ -385,7 +385,7 @@
             infoBlock.appendChild(title);
             infoBlock.appendChild(date);
             infoBlock.appendChild(tags);
-            infoBlock.appendChild(details);
+            // infoBlock.appendChild(details);
             if (data.links) { infoBlock.appendChild(links); }
             container.appendChild(thumb);
             container.appendChild(infoBlock)

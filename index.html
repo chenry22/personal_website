@@ -3,31 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caleb Henry - Software Developer</title>
+    <title>Caleb Henry</title>
 
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Honk:MORF@15&family=Rock+3D&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body>
+<body class="preload">
+    <script>
+        window.addEventListener('load', function() {
+            document.getElementsByTagName('body')[0].classList.remove('preload');
+        });
+    </script>
+
     <div id="main">
         <div class="tree-text">
             <a href="CalebHenry_Resume.pdf" target="_blank">Resume</a>
-            <div onclick="toggleDesc(1)">Contact</div>
-            <div onclick="toggleDesc(0)">About</div>
+            <div onclick="toggleDesc(0)">Links</div>
+            <!-- <div onclick="toggleDesc(0)">About</div> -->
         </div>
         <div class="desc">
-            <p onclick="toggleDesc(0)" class="desc-text hidden">Hello! I'm Caleb, a coder/creative/person in the world. I recently graduated from <a href='https://washu.edu' target="_blank">WashU</a> (2026) with a BS in Computer Science. I love the DIY web, music, basketball, and turning compelling ideas into realities. Please explore some of my work below!</p>
-            <p onclick="toggleDesc(1)" class="desc-text hidden">You can reach me at <a href='mailto:calebhenry7095@gmail.com'>calebhenry7095@gmail.com</a> You can also find my <a href="https://www.linkedin.com/in/caleb-huerta-henry/">LinkedIn here</a>.</p>
+            <!-- <p onclick="toggleDesc(0)" class="desc-text hidden">Hello! I'm Caleb, a coder/creative/person in the world. I recently graduated from <a href='https://washu.edu' target="_blank">WashU</a> (2026) with a BS in Computer Science. I love the DIY web, music, basketball, and turning compelling ideas into realities. Please explore some of my work below!</p> -->
+
+            <ul class="desc-text hidden">
+                <li>
+                    <i class="fa fa-envelope"></i>
+                    <a href='mailto:calebhenry7095@gmail.com'>calebhenry7095@gmail.com</a>
+                </li>
+                <li>
+                    <i class="fa fa-github"></i>
+                    <a href="https://github.com/chenry22">chenry22</a>
+                </li>
+                <li>
+                    <i class="fa fa-linkedin-square"></i>
+                    <a href="https://www.linkedin.com/in/caleb-huerta-henry/">LinkedIn</a>
+                </li>
+                <li>
+                    <i>**</i>
+                    <a href="https://www.are.na/caleb-h/channels">Are.na</a>
+                </li>
+            </ul>
         </div>
 
         <div class="header">
             <h1 id="launcher">caleb henry</h1>
             <div class="tabs">
-                <a href="software.html">* Software Developer</a>
-                <a href="design.html">* Designer</a>
-                <a href="creative.html">* Creator</a>
+                <a href="software.html">* Software</a>
+                <a href="design.html">* Design</a>
+                <a href="creative.html">* Misc</a>
             </div>
         </div>
 
@@ -52,43 +78,34 @@
         const launcher = document.getElementById("launcher");
         const phrases = [
             "WashU '26 Grad",
+            "Software Developer",
+            "Designer",
+            "Creator",
+            "Full-stack Developer",
             "Co-founder of The Bobcat Press",
             "Co-founder of ORCHARD",
             "Sacramento Kings fan",
             "NBA enthusiast",
             "Lover of local music",
-            "I <3 Virginia Woolf",
+            "Virginia Woolf admirer",
             "Featured exhibitor at SLICE 2026",
             "Guitarist",
-            "I've read House of Leaves",
-            "My favorite band is Alvvays",
-            "Purple",
             "Are.na user",
             "Web surfer",
             "Owner of a valid US Driver's License",
             "Cat enjoyer",
             "Horse admirer",
             "Rabbit appreciator",
-            "Very employable person",
-            "'Work hard, play hard' believer",
-            "I'm from Columbus, OH",
-            "I'm (red-green) colorblind",
-            "Keon Ellis is my favorite basketball player",
-            "I <3 Victor Wembanyama",
             "Origami crane expert",
             "Ball knower",
             "DIY web enthusiast",
             "Mythology enjoyer",
             "Team player",
             "Thinker of thoughts and ideas",
-            "You want to hire me...",
             "Physical media enjoyer",
             "Musician",
-            "Graphic Design is my passion",
-            "I <3 Systems (and I am one)",
-            "My favorite solo artist is MAGS",
-            "Contact me! For anything",
-            "These are my works..."
+            "System",
+            "Writer"
         ];
 
         launcher.addEventListener("click", (e) => {
